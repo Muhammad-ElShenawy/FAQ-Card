@@ -1,4 +1,4 @@
-let elements = document.querySelectorAll(".text-container");
+let containerEle = document.querySelectorAll(".text-container");
 let questions = document.querySelectorAll(".question");
 let questionsArr = Array.from(questions);
 let answers = document.querySelectorAll(".answer");
@@ -10,10 +10,9 @@ answersArr.forEach(function (e) {
   e.style.display = "none";
 });
 
-console.log(answersArr);
-for (let i = 0; i < elements.length; i++) {
-  elements[i].addEventListener("click", function () {
-    if (elements[i] != questionsArr[i]) {
+for (let i = 0; i < containerEle.length; i++) {
+  containerEle[i].addEventListener("click", function () {
+    if (containerEle[i] != questionsArr[i]) {
       questionsArr[i].classList.toggle("clicked");
       answersArr[i].style.display = "block";
 
@@ -24,8 +23,6 @@ for (let i = 0; i < elements.length; i++) {
       } else if (questionsArr[i].classList.contains("clicked")) {
         iconArr[i].classList.add("clicked");
       }
-    } else {
-      console.log("NO");
     }
   });
 }
